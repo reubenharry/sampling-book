@@ -1,0 +1,87 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def ellipse_confidence(mu, cov, ax, c, n_std=2.0):
+    import numpy as np
+
+    lambda_, v = np.linalg.eig(cov)
+    lambda_ = np.sqrt(lambda_)
+    ellipse = Ellipse(
+        xy=(*mu,),
+        width=lambda_[0] * n_std * 2,
+        height=lambda_[1] * n_std * 2,
+        angle=np.degrees(np.arctan2(*v[:, 0][::-1])),
+        facecolor=c,
+        edgecolor="b",
+        alpha=0.1,
+    )
+    return ax.add_artist(ellipse)
+
+
+step = 0.1
+x_, y_ = jnp.mgrid[-1:3:step, -1:3:step]
+pos_ = jnp.dstack((x_, y_))
+logp_ = jnp.nan_to_num(
+    jax.vmap(logdensity_fn)(pos_.reshape(-1, M)).reshape(pos_.shape[0], pos_.shape[1]),
+    nan=-1e10,
+)
+levels_ = jnp.percentile(logp_.flatten(), jnp.linspace(60, 100, 10))
+
+
+steps = (jnp.isfinite(path.elbo)).sum()
+rows = int(jnp.ceil(steps / 3))
+fig, axs = plt.subplots(rows, 3, figsize=(15, 5 * rows), sharex=True, sharey=True)
+
+for i, ax in zip(range(steps), axs.flatten()):
+
+    ax.contour(x_, y_, logp_, levels=levels_)
+    state = jax.tree_map(lambda x: x[i], path)
+    sample_state, _ = blackjax.vi.pathfinder.sample(rng_key, state, 10_000)
+    position_path = path.position[: i + 1]
+    ax.plot(
+        position_path[:, 0],
+        position_path[:, 1],
+        marker="*",
+        linestyle="--",
+        markersize=10,
+    )
+    mu_i, cov_i = sample_state.mean(0), jnp.cov(sample_state, rowvar=False)
+    ellipse_confidence(mu_i, cov_i, ax, "r")
+    ax.set_title(f"Iteration: {i+1}\nEstimated ELBO: {state.elbo:.2f}")
+plt.show()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[8][39m[32m, line 35[39m
+[32m     32[39m [38;5;28;01mfor[39;00m i, ax [38;5;129;01min[39;00m [38;5;28mzip[39m([38;5;28mrange[39m(steps), axs.flatten()):
+[32m     34[39m     ax.contour(x_, y_, logp_, levels=levels_)
+[32m---> [39m[32m35[39m     state = [43mjax[49m[43m.[49m[43mtree_map[49m([38;5;28;01mlambda[39;00m x: x[i], path)
+[32m     36[39m     sample_state, _ = blackjax.vi.pathfinder.sample(rng_key, state, [32m10_000[39m)
+[32m     37[39m     position_path = path.position[: i + [32m1[39m]
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jax/_src/deprecations.py:57[39m, in [36mdeprecation_getattr.<locals>.getattr[39m[34m(name)[39m
+[32m     55[39m   warnings.warn(message, [38;5;167;01mDeprecationWarning[39;00m, stacklevel=[32m2[39m)
+[32m     56[39m   [38;5;28;01mreturn[39;00m fn
+[32m---> [39m[32m57[39m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([33mf[39m[33m"[39m[33mmodule [39m[38;5;132;01m{[39;00mmodule[38;5;132;01m!r}[39;00m[33m has no attribute [39m[38;5;132;01m{[39;00mname[38;5;132;01m!r}[39;00m[33m"[39m)
+
+[31mAttributeError[39m: module 'jax' has no attribute 'tree_map'
+
