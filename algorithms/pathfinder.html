@@ -607,11 +607,14 @@ The optimizer is the limited memory BFGS algorithm.</p>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">35</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> 
 <span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">),</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> 
 <span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">logp_</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels_</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">35</span>     <span class="n">state</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">tree_map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">path</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">sample_state</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">blackjax</span><span class="o">.</span><span class="n">vi</span><span class="o">.</span><span class="n">pathfinder</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">position_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">position</span><span class="p">[:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jax/_src/deprecations.py:57,</span> in <span class="ni">deprecation_getattr.&lt;locals&gt;.getattr</span><span class="nt">(name)</span>
 <span class="g g-Whitespace">     </span><span class="mi">55</span>   <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -621,7 +624,7 @@ The optimizer is the limited memory BFGS algorithm.</p>
 <span class="ne">AttributeError</span>: module &#39;jax&#39; has no attribute &#39;tree_map&#39;
 </pre></div>
 </div>
-<img alt="../_images/24357556f00b60b9b3f81e2891df4189c8299fd664f6d78a26d284722d4934ef.png" src="../_images/24357556f00b60b9b3f81e2891df4189c8299fd664f6d78a26d284722d4934ef.png" />
+<img alt="../_images/ab37f109c0fc7d687f107c6dc5f6d3904300aa93072fba60b3f1dd5a69867bcf.png" src="../_images/ab37f109c0fc7d687f107c6dc5f6d3904300aa93072fba60b3f1dd5a69867bcf.png" />
 </div>
 </div>
 </section>

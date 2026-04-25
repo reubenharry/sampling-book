@@ -72,11 +72,14 @@ plt.show()
 [31m---------------------------------------------------------------------------[39m
 [31mAttributeError[39m                            Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[8][39m[32m, line 35[39m
-[32m     32[39m [38;5;28;01mfor[39;00m i, ax [38;5;129;01min[39;00m [38;5;28mzip[39m([38;5;28mrange[39m(steps), axs.flatten()):
+[32m     31[39m 
+[32m     32[39m [38;5;28;01mfor[39;00m i, ax [38;5;28;01min[39;00m zip(range(steps), axs.flatten()):
+[32m     33[39m 
 [32m     34[39m     ax.contour(x_, y_, logp_, levels=levels_)
-[32m---> [39m[32m35[39m     state = [43mjax[49m[43m.[49m[43mtree_map[49m([38;5;28;01mlambda[39;00m x: x[i], path)
+[32m---> [39m[32m35[39m     state = jax.tree_map([38;5;28;01mlambda[39;00m x: x[i], path)
 [32m     36[39m     sample_state, _ = blackjax.vi.pathfinder.sample(rng_key, state, [32m10_000[39m)
 [32m     37[39m     position_path = path.position[: i + [32m1[39m]
+[32m     38[39m     ax.plot(
 
 [36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jax/_src/deprecations.py:57[39m, in [36mdeprecation_getattr.<locals>.getattr[39m[34m(name)[39m
 [32m     55[39m   warnings.warn(message, [38;5;167;01mDeprecationWarning[39;00m, stacklevel=[32m2[39m)
