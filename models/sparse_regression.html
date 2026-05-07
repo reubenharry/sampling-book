@@ -402,8 +402,8 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sparse-regression">
 <h1>Sparse regression<a class="headerlink" href="#sparse-regression" title="Link to this heading">#</a></h1>
-<p>In this example we will use a sparse binary regression with hierarchies on the scale of the independent variable’s parameters that function as a proxy for variable selection. We will use the Horseshoe prior to <span id="id1">[<a class="reference internal" href="#id8" title="Carlos M Carvalho, Nicholas G Polson, and James G Scott. The horseshoe estimator for sparse signals. Biometrika, 97(2):465–480, 2010.">CPS10</a>]</span> to ensure sparsity.</p>
-<p>The Horseshoe prior consists in putting a prior on the scale of the regression parameter <span class="math notranslate nohighlight">\(\beta\)</span>: the product of a global <span class="math notranslate nohighlight">\(\tau\)</span> and local <span class="math notranslate nohighlight">\(\lambda\)</span> parameter that are both concentrated at <span class="math notranslate nohighlight">\(0\)</span>, thus allowing the corresponding regression parameter to degenerate at <span class="math notranslate nohighlight">\(0\)</span> and effectively excluding this parameter from the model. This kind of model is challenging for samplers: the prior on <span class="math notranslate nohighlight">\(\beta\)</span>’s scale parameter creates funnel geometries that are hard to efficiently explore <span id="id2">[<a class="reference internal" href="#id14" title="Omiros Papaspiliopoulos, Gareth O Roberts, and Martin Sköld. A general framework for the parametrization of hierarchical models. Statistical Science, pages 59–73, 2007.">PRSkold07</a>]</span>.</p>
+<p>In this example we will use a sparse binary regression with hierarchies on the scale of the independent variable’s parameters that function as a proxy for variable selection. We will use the Horseshoe prior to <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id8" title="Carlos M Carvalho, Nicholas G Polson, and James G Scott. The horseshoe estimator for sparse signals. Biometrika, 97(2):465–480, 2010.">CPS10</a>]</span> to ensure sparsity.</p>
+<p>The Horseshoe prior consists in putting a prior on the scale of the regression parameter <span class="math notranslate nohighlight">\(\beta\)</span>: the product of a global <span class="math notranslate nohighlight">\(\tau\)</span> and local <span class="math notranslate nohighlight">\(\lambda\)</span> parameter that are both concentrated at <span class="math notranslate nohighlight">\(0\)</span>, thus allowing the corresponding regression parameter to degenerate at <span class="math notranslate nohighlight">\(0\)</span> and effectively excluding this parameter from the model. This kind of model is challenging for samplers: the prior on <span class="math notranslate nohighlight">\(\beta\)</span>’s scale parameter creates funnel geometries that are hard to efficiently explore <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id14" title="Omiros Papaspiliopoulos, Gareth O Roberts, and Martin Sköld. A general framework for the parametrization of hierarchical models. Statistical Science, pages 59–73, 2007.">PRSkold07</a>]</span>.</p>
 <p>Mathematically, we will consider the following model:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -414,7 +414,7 @@
 p &amp;= \operatorname{sigmoid}\left(- X.\boldsymbol{\beta}\right)\\
 y &amp;\sim \operatorname{Bernoulli}(p)\\
 \end{align*}\]</div>
-<p>The model is run on its <em>non-centered parametrization</em> <span id="id3">[<a class="reference internal" href="#id14" title="Omiros Papaspiliopoulos, Gareth O Roberts, and Martin Sköld. A general framework for the parametrization of hierarchical models. Statistical Science, pages 59–73, 2007.">PRSkold07</a>]</span> with data from the numerical version of the German credit dataset. The target posterior is defined by its likelihood. We implement the model using <a class="reference external" href="https://github.com/aesara-devs/aesara">Aesara</a>:</p>
+<p>The model is run on its <em>non-centered parametrization</em> <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id14" title="Omiros Papaspiliopoulos, Gareth O Roberts, and Martin Sköld. A general framework for the parametrization of hierarchical models. Statistical Science, pages 59–73, 2007.">PRSkold07</a>]</span> with data from the numerical version of the German credit dataset. The target posterior is defined by its likelihood. We implement the model using <a class="reference external" href="https://github.com/aesara-devs/aesara">Aesara</a>:</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -539,7 +539,7 @@ y &amp;\sim \operatorname{Bernoulli}(p)\\
 </div>
 <section id="german-credit-dataset">
 <h2>German credit dataset<a class="headerlink" href="#german-credit-dataset" title="Link to this heading">#</a></h2>
-<p>We will use the sparse regression model on the German credit dataset <span id="id4">[<a class="reference internal" href="#id9" title="Dheeru Dua and Casey Graff. UCI machine learning repository. 2017. URL: http://archive.ics.uci.edu/ml.">DG17</a>]</span>. We use the numeric version that is adapted to models that cannot handle categorical data:</p>
+<p>We will use the sparse regression model on the German credit dataset <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id9" title="Dheeru Dua and Casey Graff. UCI machine learning repository. 2017. URL: http://archive.ics.uci.edu/ml.">DG17</a>]</span>. We use the numeric version that is adapted to models that cannot handle categorical data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -638,7 +638,7 @@ y &amp;\sim \operatorname{Bernoulli}(p)\\
 </div>
 <section id="meads">
 <h3>MEADS<a class="headerlink" href="#meads" title="Link to this heading">#</a></h3>
-<p>The MEADS algorithm <span id="id5">[<a class="reference internal" href="#id10" title="Matthew D Hoffman and Pavel Sountsov. Tuning-free generalized hamiltonian monte carlo. In International Conference on Artificial Intelligence and Statistics, 7799–7813. PMLR, 2022.">HS22</a>]</span> is a combination of Generalized HMC with a parameter tuning procedure. Let us initialize the position of the chain first:</p>
+<p>The MEADS algorithm <span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id10" title="Matthew D Hoffman and Pavel Sountsov. Tuning-free generalized hamiltonian monte carlo. In International Conference on Artificial Intelligence and Statistics, 7799–7813. PMLR, 2022.">HS22</a>]</span> is a combination of Generalized HMC with a parameter tuning procedure. Let us initialize the position of the chain first:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_chains</span> <span class="o">=</span> <span class="mi">128</span>

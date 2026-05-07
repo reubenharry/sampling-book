@@ -409,8 +409,8 @@ with Markov Chain Monte Carlo (MCMC) methods from <a class="reference external" 
 <section id="tl-dr">
 <h2>TL;DR<a class="headerlink" href="#tl-dr" title="Link to this heading">#</a></h2>
 <p>Compute log-posterior of IVP parameters given observations of the IVP solution with ProbDiffEq. Sample from this posterior using BlackJAX.
-Evaluating the log-likelihood of the data is described <a class="reference external" href="https://arxiv.org/abs/2202.01287">in this paper</a> <span id="id1">[<a class="reference internal" href="#id20" title="Filip Tronarp, Nathanael Bosch, and Philipp Hennig. Fenrir: physics-enhanced regression for initial value problems. In International Conference on Machine Learning, 21776–21794. PMLR, 2022.">TBH22</a>]</span>.
-Based on this log-likelihood, sampling from the log-posterior is as done <a class="reference external" href="https://arxiv.org/abs/2002.09301">in this paper</a> <span id="id2">[<a class="reference internal" href="#id21" title="Hans Kersting, Nicholas Krämer, Martin Schiegg, Christian Daniel, Michael Tiemann, and Philipp Hennig. Differentiable likelihoods for fast inversion of 'likelihood-free' dynamical systems. In International Conference on Machine Learning, 5198–5208. PMLR, 2020.">KKramerS+20</a>]</span>.</p>
+Evaluating the log-likelihood of the data is described <a class="reference external" href="https://arxiv.org/abs/2202.01287">in this paper</a> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id20" title="Filip Tronarp, Nathanael Bosch, and Philipp Hennig. Fenrir: physics-enhanced regression for initial value problems. In International Conference on Machine Learning, 21776–21794. PMLR, 2022.">TBH22</a>]</span>.
+Based on this log-likelihood, sampling from the log-posterior is as done <a class="reference external" href="https://arxiv.org/abs/2002.09301">in this paper</a> <span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id21" title="Hans Kersting, Nicholas Krämer, Martin Schiegg, Christian Daniel, Michael Tiemann, and Philipp Hennig. Differentiable likelihoods for fast inversion of 'likelihood-free' dynamical systems. In International Conference on Machine Learning, 5198–5208. PMLR, 2020.">KKramerS+20</a>]</span>.</p>
 </section>
 <section id="technical-setup">
 <h2>Technical setup<a class="headerlink" href="#technical-setup" title="Link to this heading">#</a></h2>
@@ -422,7 +422,7 @@ Consider an ordinary differential equation</p>
 \dot y(t) = f(y(t)), \quad 0 \leq t \leq T
 \]</div>
 <p>subject to an unknown initial condition <span class="math notranslate nohighlight">\(y(0) = \theta\)</span>.
-The probabilistic IVP solution is an approximation of the posterior distribution (e.g. Eq. (12) in <span id="id3">[<a class="reference internal" href="#id22" title="Nicholas Krämer, Nathanael Bosch, Jonathan Schmidt, and Philipp Hennig. Probabilistic ode solutions in millions of dimensions. In International Conference on Machine Learning, 11634–11649. PMLR, 2022.">KramerBSH22</a>]</span>)</p>
+The probabilistic IVP solution is an approximation of the posterior distribution (e.g. Eq. (12) in <span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id22" title="Nicholas Krämer, Nathanael Bosch, Jonathan Schmidt, and Philipp Hennig. Probabilistic ode solutions in millions of dimensions. In International Conference on Machine Learning, 11634–11649. PMLR, 2022.">KramerBSH22</a>]</span>)</p>
 <div class="math notranslate nohighlight">
 \[
 p\left(y ~|~ [\dot y(t_n) = f(y(t_n))]_{n=0}^N, y(0) = \theta\right)
@@ -957,7 +957,7 @@ Non-probabilistic solvers would also fail if the observations were noise-free (i
 We could extend the sampling problem from <span class="math notranslate nohighlight">\(\theta \mapsto \log M(\theta)\)</span> to some <span class="math notranslate nohighlight">\((\theta, \sigma) \mapsto \log \tilde M(\theta, \sigma)\)</span>, i.e., treat the observation noise as unknown and run Hamiltonian Monte Carlo in a higher-dimensional parameter space.
 We could also add a more suitable prior distribution <span class="math notranslate nohighlight">\(p(\theta)\)</span> to regularise the problem.</p>
 <p>A final side note:
-We could also replace the sampler with an optimisation algorithm and use this procedure to solve boundary value problems (albeit this may not be very efficient; use <a class="reference external" href="https://arxiv.org/abs/2106.07761">this</a> algorithm instead  <span id="id4">[<a class="reference internal" href="#id23" title="Nicholas Krämer and Philipp Hennig. Linear-time probabilistic solutions of boundary value problems. Advances in Neural Information Processing Systems, 34:11160–11171, 2021.">KramerH21</a>]</span>).</p>
+We could also replace the sampler with an optimisation algorithm and use this procedure to solve boundary value problems (albeit this may not be very efficient; use <a class="reference external" href="https://arxiv.org/abs/2106.07761">this</a> algorithm instead  <span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id23" title="Nicholas Krämer and Philipp Hennig. Linear-time probabilistic solutions of boundary value problems. Advances in Neural Information Processing Systems, 34:11160–11171, 2021.">KramerH21</a>]</span>).</p>
 <div class="docutils container" id="id5">
 <div role="list" class="citation-list">
 <div class="citation" id="id21" role="doc-biblioentry">
