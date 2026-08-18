@@ -521,8 +521,8 @@ $<span class="math notranslate nohighlight">\( \hat{f} = \sum_{t^\prime}^T \sum_
 
 
 <span class="c1"># Plot settings</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"figure.figsize"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
@@ -535,23 +535,23 @@ $<span class="math notranslate nohighlight">\( \hat{f} = \sum_{t^\prime}^T \sum_
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define target distribution</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">V</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Potential for two-mode distribution.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Potential for two-mode distribution."""</span>
     <span class="k">return</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">log_likelihood_fn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log likelihood function.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Log likelihood function."""</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">V</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">log_prior_fn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log prior function.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Log prior function."""</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">multivariate_normal</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">d</span><span class="p">,)),</span> <span class="n">jnp</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">log_posterior_fn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log posterior function, the target distribution.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Log posterior function, the target distribution."""</span>
     <span class="k">return</span> <span class="n">log_likelihood_fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_prior_fn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -586,7 +586,7 @@ $<span class="math notranslate nohighlight">\( \hat{f} = \sum_{t^\prime}^T \sum_
 
 <span class="c1"># Inference loop for a fixed schedule</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">fixed_schedule_loop</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">sampler</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="n">tempering_schedule</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run SMC/PS with a fixed tempering schedule.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Run SMC/PS with a fixed tempering schedule."""</span>
 
     <span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">one_step</span><span class="p">(</span><span class="n">carry</span><span class="p">,</span> <span class="n">lmbda</span><span class="p">):</span>
@@ -635,7 +635,7 @@ $<span class="math notranslate nohighlight">\( \hat{f} = \sum_{t^\prime}^T \sum_
 <span class="n">smc_final_weights</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">smc_final_state</span><span class="o">.</span><span class="n">weights</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">smc_final_state</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final ESS (SMC): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">smc_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Final ESS (SMC): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">smc_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -689,7 +689,7 @@ Wall time: 3.59 s
 <span class="n">ps_final_weights</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">ps_final_state</span><span class="o">.</span><span class="n">persistent_weights</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ps_final_state</span><span class="o">.</span><span class="n">persistent_weights</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final ESS (Persistent Sampling): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ps_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Final ESS (Persistent Sampling): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ps_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -709,7 +709,7 @@ Wall time: 5.13 s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">adaptive_schedule_loop</span><span class="p">(</span><span class="n">rng_key</span><span class="p">,</span> <span class="n">sampler</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">initial_state</span><span class="p">,</span> <span class="n">max_iterations</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run adaptive SMC until condition is met.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Run adaptive SMC until condition is met."""</span>
 
     <span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">one_step</span><span class="p">(</span><span class="n">carry</span><span class="p">):</span>
@@ -726,9 +726,9 @@ Wall time: 5.13 s
 
     <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&gt;=</span> <span class="n">max_iterations</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
-            <span class="s2">&quot;Warning: Maximum number of iterations reached before lambda=1.0, &quot;</span>
-            <span class="s2">&quot;the final state may not represent the target distribution. &quot;</span>
-            <span class="s2">&quot;Check the final tempering parameter value.&quot;</span>
+            <span class="s2">"Warning: Maximum number of iterations reached before lambda=1.0, "</span>
+            <span class="s2">"the final state may not represent the target distribution. "</span>
+            <span class="s2">"Check the final tempering parameter value."</span>
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">final_state</span>
@@ -757,7 +757,7 @@ Wall time: 5.13 s
 
 <span class="c1"># Define condition function for Adaptive SMC</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">smc_cond</span><span class="p">(</span><span class="n">carry</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns True while lambda &lt; 1.0 and iteration &lt; max_iterations.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Returns True while lambda &lt; 1.0 and iteration &lt; max_iterations."""</span>
     <span class="n">i</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">carry</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">tempering_param</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">max_iterations</span><span class="p">)</span>
 
@@ -776,9 +776,9 @@ Wall time: 5.13 s
 <span class="n">adaptive_smc_final_weights</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">adaptive_smc_final_state</span><span class="o">.</span><span class="n">weights</span> <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">adaptive_smc_final_state</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of iterations (Adaptive SMC):&quot;</span><span class="p">,</span> <span class="n">adaptive_smc_n_iter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of iterations (Adaptive SMC):"</span><span class="p">,</span> <span class="n">adaptive_smc_n_iter</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;Final ESS (Adaptive SMC): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">adaptive_smc_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">"Final ESS (Adaptive SMC): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">adaptive_smc_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -824,7 +824,7 @@ Wall time: 2.85 s
 <span class="c1"># Define condition function for Adaptive PS</span>
 <span class="c1"># We allow the loop to continue after lambda=1.0 if the ESS is below the target</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">ps_cond</span><span class="p">(</span><span class="n">carry</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns True while lambda &lt; 1.0 or ESS &lt; target_ess and iteration &lt; max_iterations.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Returns True while lambda &lt; 1.0 or ESS &lt; target_ess and iteration &lt; max_iterations."""</span>
     <span class="n">i</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">carry</span>
     <span class="n">ess</span> <span class="o">=</span> <span class="n">blackjax</span><span class="o">.</span><span class="n">persistent_sampling</span><span class="o">.</span><span class="n">compute_persistent_ess</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">persistent_weights</span><span class="p">),</span> <span class="n">normalize_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
     <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span>
@@ -851,8 +851,8 @@ Wall time: 2.85 s
     <span class="n">adaptive_ps_final_state</span><span class="o">.</span><span class="n">persistent_weights</span>
     <span class="o">/</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">adaptive_ps_final_state</span><span class="o">.</span><span class="n">persistent_weights</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">block_until_ready</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of iterations (Adaptive PS):&quot;</span><span class="p">,</span> <span class="n">adaptive_ps_n_iter</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final ESS (Adaptive PS): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">adaptive_ps_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Number of iterations (Adaptive PS):"</span><span class="p">,</span> <span class="n">adaptive_ps_n_iter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Final ESS (Adaptive PS): </span><span class="si">{</span><span class="mf">1.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">adaptive_ps_final_weights</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -885,19 +885,19 @@ Wall time: 4.61 s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">algorithms</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="s2">&quot;Sequential Monte Carlo&quot;</span><span class="p">,</span> <span class="n">smc_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-    <span class="p">(</span><span class="s2">&quot;Persistent Sampling&quot;</span><span class="p">,</span> <span class="n">ps_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-    <span class="p">(</span><span class="s2">&quot;Adaptive SMC&quot;</span><span class="p">,</span> <span class="n">adaptive_smc_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
-    <span class="p">(</span><span class="s2">&quot;Adaptive PS&quot;</span><span class="p">,</span> <span class="n">adaptive_ps_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
+    <span class="p">(</span><span class="s2">"Sequential Monte Carlo"</span><span class="p">,</span> <span class="n">smc_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+    <span class="p">(</span><span class="s2">"Persistent Sampling"</span><span class="p">,</span> <span class="n">ps_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+    <span class="p">(</span><span class="s2">"Adaptive SMC"</span><span class="p">,</span> <span class="n">adaptive_smc_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+    <span class="p">(</span><span class="s2">"Adaptive PS"</span><span class="p">,</span> <span class="n">adaptive_ps_final_state</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
 <span class="p">]</span>
 
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">particles</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">algorithms</span><span class="p">:</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
         <span class="n">x_linspace</span><span class="p">,</span>
         <span class="n">true_distribution</span><span class="p">,</span>
-        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span>
         <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True Distribution&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">"True Distribution"</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
@@ -905,17 +905,17 @@ Wall time: 4.61 s
         <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
         <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
-        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Samples&quot;</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">"Samples"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Posterior Samples Comparison&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.00</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">supxlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">supylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Posterior Samples Comparison"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.00</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">supxlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">supylabel</span><span class="p">(</span><span class="s2">"Density"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>

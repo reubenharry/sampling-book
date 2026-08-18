@@ -492,9 +492,9 @@ u \\
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.spines.right&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.spines.top&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.right"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.spines.top"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">19</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">blackjax</span>
@@ -506,7 +506,7 @@ u \\
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">numpyro.infer.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">initialize_model</span>
 
-<span class="n">rng_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)))</span>
+<span class="n">rng_key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">key</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y%m</span><span class="si">%d</span><span class="s2">"</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -624,13 +624,13 @@ u \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">samples</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">samples</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Scatter Plot of Samples&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Scatter Plot of Samples"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Scatter Plot of Samples&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, 'Scatter Plot of Samples')
 </pre></div>
 </div>
 <img alt="../_images/2d168eace20ad8d73606ddfdeda2d6430615b534f1b8960a8579206e49534191.png" src="../_images/2d168eace20ad8d73606ddfdeda2d6430615b534f1b8960a8579206e49534191.png" />
@@ -640,19 +640,19 @@ u \\
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visualize_results_gauss</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
   <span class="n">x1</span> <span class="o">=</span> <span class="n">samples</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span> <span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="n">label</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span> <span class="s1">'step'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="n">label</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">ground_truth_gauss</span><span class="p">():</span>
   <span class="c1"># ground truth</span>
   <span class="n">t</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span>  <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;exact&#39;</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x_1$&#39;</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p(x_1$)&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span>  <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span> <span class="s1">'black'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">'exact'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$x_1$'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$p(x_1$)'</span><span class="p">)</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">visualize_results_gauss</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="s1">&#39;MCLMC&#39;</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">)</span>
+<span class="n">visualize_results_gauss</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="s1">'MCLMC'</span><span class="p">,</span> <span class="s1">'teal'</span><span class="p">)</span>
 <span class="n">ground_truth_gauss</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -695,8 +695,8 @@ u \\
     <span class="n">progress_bar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">visualize_results_gauss</span><span class="p">(</span><span class="n">new_samples</span><span class="p">,</span> <span class="s1">&#39;MCLMC&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">visualize_results_gauss</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="s1">&#39;MCLMC&#39;</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">)</span>
+<span class="n">visualize_results_gauss</span><span class="p">(</span><span class="n">new_samples</span><span class="p">,</span> <span class="s1">'MCLMC'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">)</span>
+<span class="n">visualize_results_gauss</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="s1">'MCLMC'</span><span class="p">,</span> <span class="s1">'teal'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -710,8 +710,8 @@ u \\
 <h2>A more complex example<a class="headerlink" href="#a-more-complex-example" title="Link to this heading">#</a></h2>
 <p>We now consider a more complex model, of stock volatility.</p>
 <p>The returns <span class="math notranslate nohighlight">\(r_n\)</span> are modeled by a Student’s-t distribution whose scale (volatility) <span class="math notranslate nohighlight">\(R_n\)</span> is time varying and unknown. The prior for <span class="math notranslate nohighlight">\(\log R_n\)</span> is a Gaussian random walk, with an exponential distribution of the random walk step-size <span class="math notranslate nohighlight">\(\sigma\)</span>. An exponential prior is also taken for the Student’s-t degrees of freedom <span class="math notranslate nohighlight">\(\nu\)</span>. The generative process of the data is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb8c9032-bc12-4797-9ded-7419694351a1">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eb8c9032-bc12-4797-9ded-7419694351a1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-384ddea8-32ca-44fb-a806-5dcce6a5f0c8">
+<span class="eqno">(1)<a class="headerlink" href="#equation-384ddea8-32ca-44fb-a806-5dcce6a5f0c8" title="Permalink to this equation">#</a></span>\[\begin{align}
     &amp;r_n / R_n \sim \text{Student's-t}(\nu) \qquad
     &amp;&amp;\nu \sim \text{Exp}(\lambda = 1/10) \\ \nonumber
     &amp;\log R_n \sim \mathcal{N}(\log R_{n-1}, \sigma) \qquad
@@ -736,17 +736,17 @@ u \\
   <span class="c1"># figure setup,</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
   <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
-  <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#remove the upper and the right axis lines</span>
-  <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'right'</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#remove the upper and the right axis lines</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">'top'</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
   <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">YearLocator</span><span class="p">())</span> <span class="c1">#dates on the xaxis</span>
-  <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">))</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">"%Y"</span><span class="p">))</span>
   <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">MonthLocator</span><span class="p">())</span>
 
   <span class="c1"># plot data</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">SP500_returns</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;S&amp;P500 returns&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">SP500_returns</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">,</span> <span class="n">markersize</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">'steelblue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">'data'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'time'</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'S&amp;P500 returns'</span><span class="p">)</span>
 
 
 <span class="n">setup</span><span class="p">()</span>
@@ -780,11 +780,11 @@ u \\
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">stochastic_volatility</span><span class="p">(</span><span class="n">sigma_mean</span><span class="p">,</span> <span class="n">nu_mean</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;numpyro model&quot;&quot;&quot;</span>
-    <span class="n">sigma</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;sigma&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">sigma_mean</span><span class="p">))</span>
-    <span class="n">nu</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;nu&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nu_mean</span><span class="p">))</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">GaussianRandomWalk</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">SP500_returns</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span> <span class="c1"># = log R</span>
-    <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">StudentT</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">nu</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">)),</span> <span class="n">obs</span><span class="o">=</span> <span class="n">SP500_returns</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""numpyro model"""</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">"sigma"</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">sigma_mean</span><span class="p">))</span>
+    <span class="n">nu</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">"nu"</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">nu_mean</span><span class="p">))</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">"s"</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">GaussianRandomWalk</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">SP500_returns</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span> <span class="c1"># = log R</span>
+    <span class="n">numpyro</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">dist</span><span class="o">.</span><span class="n">StudentT</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">nu</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">)),</span> <span class="n">obs</span><span class="o">=</span> <span class="n">SP500_returns</span><span class="p">)</span>
 
 
 <span class="n">model_args</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">10.</span><span class="p">)</span>
@@ -810,7 +810,7 @@ u \\
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visualize_results_sv</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
 
-  <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">]))</span> <span class="c1"># take an exponent to get R</span>
+  <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s1">'s'</span><span class="p">]))</span> <span class="c1"># take an exponent to get R</span>
   <span class="n">lower_quantile</span><span class="p">,</span> <span class="n">median</span><span class="p">,</span> <span class="n">upper_quantile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
   <span class="c1"># plot posterior</span>
@@ -820,7 +820,7 @@ u \\
 
 <span class="n">setup</span><span class="p">()</span>
 
-<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;volatility posterior&#39;</span><span class="p">)</span>
+<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">'navy'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">'volatility posterior'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -862,8 +862,8 @@ u \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">()</span>
-<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">new_samples</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;MCLMC&#39;</span><span class="p">,</span> <span class="p">)</span>
-<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span><span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="s1">&#39;MCLMC (stepsize/2)&#39;</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">new_samples</span><span class="p">,</span><span class="s1">'red'</span><span class="p">,</span> <span class="s1">'MCLMC'</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span><span class="s1">'teal'</span><span class="p">,</span> <span class="s1">'MCLMC (stepsize/2)'</span><span class="p">,</span> <span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -879,19 +879,19 @@ u \\
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visualize_results_sv_marginal</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
     <span class="c1"># plt.subplot(1, 2, 1)</span>
-    <span class="c1"># plt.hist(samples[&#39;nu&#39;], bins = 20, histtype= &#39;step&#39;, lw= 4, density= True, color= color, label= label)</span>
-    <span class="c1"># plt.xlabel(r&#39;$\nu$&#39;)</span>
-    <span class="c1"># plt.ylabel(r&#39;$p(\nu \vert \mathrm{data})$&#39;)</span>
+    <span class="c1"># plt.hist(samples['nu'], bins = 20, histtype= 'step', lw= 4, density= True, color= color, label= label)</span>
+    <span class="c1"># plt.xlabel(r'$\nu$')</span>
+    <span class="c1"># plt.ylabel(r'$p(\nu \vert \mathrm{data})$')</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s1">&#39;sigma&#39;</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span> <span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="n">label</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\sigma$&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$p(\sigma \vert \mathrm</span><span class="si">{data}</span><span class="s1">)$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">samples</span><span class="p">[</span><span class="s1">'sigma'</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span> <span class="s1">'step'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="n">label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\sigma$'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$p(\sigma \vert \mathrm</span><span class="si">{data}</span><span class="s1">)$'</span><span class="p">)</span>
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">visualize_results_sv_marginal</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;MCLMC&#39;</span><span class="p">)</span>
-<span class="n">visualize_results_sv_marginal</span><span class="p">(</span><span class="n">new_samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;MCLMC (stepsize/2)&#39;</span><span class="p">)</span>
+<span class="n">visualize_results_sv_marginal</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">'teal'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">'MCLMC'</span><span class="p">)</span>
+<span class="n">visualize_results_sv_marginal</span><span class="p">(</span><span class="n">new_samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">'red'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">'MCLMC (stepsize/2)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1004,13 +1004,13 @@ u \\
     <span class="n">key</span><span class="o">=</span><span class="n">sample_key</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">samples</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">samples</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Scatter Plot of Samples&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Scatter Plot of Samples"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Scatter Plot of Samples&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, 'Scatter Plot of Samples')
 </pre></div>
 </div>
 <img alt="../_images/877f44d6e37e7ed7ac5359b96b1412a6c2c8595ade0dfe26fe719079ec415b61.png" src="../_images/877f44d6e37e7ed7ac5359b96b1412a6c2c8595ade0dfe26fe719079ec415b61.png" />
@@ -1028,7 +1028,7 @@ u \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">()</span>
-<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">adjusted_samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;volatility posterior&#39;</span><span class="p">)</span>
+<span class="n">visualize_results_sv</span><span class="p">(</span><span class="n">adjusted_samples</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span> <span class="s1">'navy'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">'volatility posterior'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
