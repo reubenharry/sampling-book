@@ -1,20 +1,20 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 1323, in execute
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/nbclient/client.py", line 1323, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -56,7 +56,7 @@ plt.show()
 [32m     12[39m         vf, initial_values=(theta,), save_at=save_at, solver=solver
 [32m     13[39m     )
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/solution_routines.py:93[39m, in [36msolve_and_save_at[39m[34m(vector_field, initial_values, save_at, solver, parameters, taylor_fn, while_loop_fn_temporal, while_loop_fn_per_step, **options)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/solution_routines.py:93[39m, in [36msolve_and_save_at[39m[34m(vector_field, initial_values, save_at, solver, parameters, taylor_fn, while_loop_fn_temporal, while_loop_fn_per_step, **options)[39m
 [32m     84[39m num_derivatives = solver.strategy.implementation.extrapolation.num_derivatives
 [32m     85[39m taylor_coefficients = taylor_fn(
 [32m     86[39m     vector_field=jax.tree_util.Partial(vector_field),
@@ -74,7 +74,7 @@ plt.show()
 [32m    101[39m [30;43m    [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43moptions[39;49m[30;43m,[39;49m
 [32m    102[39m [30;43m[39;49m[30;43m)[39;49m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:67[39m, in [36msolve_and_save_at[39m[34m(vector_field, taylor_coefficients, save_at, solver, parameters, while_loop_fn_temporal, while_loop_fn_per_step, **options)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:67[39m, in [36msolve_and_save_at[39m[34m(vector_field, taylor_coefficients, save_at, solver, parameters, while_loop_fn_temporal, while_loop_fn_per_step, **options)[39m
 [32m     64[39m t0 = save_at[[32m0[39m]
 [32m     65[39m state0 = adaptive_solver.init_fn(taylor_coefficients=taylor_coefficients, t0=t0)
 [32m---> [39m[32m67[39m _, solution = [30;43m_control_flow[39;49m[30;43m.[39;49m[30;43mscan_with_init[39;49m[30;43m([39;49m
@@ -85,7 +85,7 @@ plt.show()
 [32m     72[39m [30;43m[39;49m[30;43m)[39;49m
 [32m     73[39m [38;5;28;01mreturn[39;00m adaptive_solver.extract_fn(state=solution)
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_control_flow.py:17[39m, in [36mscan_with_init[39m[34m(f, init, xs, reverse)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_control_flow.py:17[39m, in [36mscan_with_init[39m[34m(f, init, xs, reverse)[39m
 [32m     10[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mscan_with_init[39m(*, f, init, xs, reverse=[38;5;28;01mFalse[39;00m):
 [32m     11[39m [38;5;250m    [39m[33;03m"""Scan, but include the ``init`` parameter into the output.[39;00m
 [32m     12[39m 
@@ -99,7 +99,7 @@ plt.show()
 
     [31m[... skipping hidden 4 frame][39m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:54[39m, in [36msolve_and_save_at.<locals>.advance_to_next_checkpoint[39m[34m(s, t_next)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:54[39m, in [36msolve_and_save_at.<locals>.advance_to_next_checkpoint[39m[34m(s, t_next)[39m
 [32m     53[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34madvance_to_next_checkpoint[39m(s, t_next):
 [32m---> [39m[32m54[39m     s_next = [30;43m_advance_ivp_solution_adaptively[39;49m[30;43m([39;49m
 [32m     55[39m [30;43m        [39;49m[30;43mstate0[39;49m[30;43m=[39;49m[30;43ms[39;49m[30;43m,[39;49m
@@ -111,7 +111,7 @@ plt.show()
 [32m     61[39m [30;43m    [39;49m[30;43m)[39;49m
 [32m     62[39m     [38;5;28;01mreturn[39;00m s_next, s_next
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:90[39m, in [36m_advance_ivp_solution_adaptively[39m[34m(vector_field, t1, state0, adaptive_solver, parameters, while_loop_fn)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:90[39m, in [36m_advance_ivp_solution_adaptively[39m[34m(vector_field, t1, state0, adaptive_solver, parameters, while_loop_fn)[39m
 [32m     85[39m     state = adaptive_solver.step_fn(
 [32m     86[39m         state=s, vector_field=vector_field, t1=t1, parameters=parameters
 [32m     87[39m     )
@@ -125,7 +125,7 @@ plt.show()
 
     [31m[... skipping hidden 4 frame][39m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:85[39m, in [36m_advance_ivp_solution_adaptively.<locals>.body_fun[39m[34m(s)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_solution_routines_impl.py:85[39m, in [36m_advance_ivp_solution_adaptively.<locals>.body_fun[39m[34m(s)[39m
 [32m     84[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mbody_fun[39m(s):
 [32m---> [39m[32m85[39m     state = [30;43madaptive_solver[39;49m[30;43m.[39;49m[30;43mstep_fn[39;49m[30;43m([39;49m
 [32m     86[39m [30;43m        [39;49m[30;43mstate[39;49m[30;43m=[39;49m[30;43ms[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mvector_field[39;49m[30;43m=[39;49m[30;43mvector_field[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mt1[39;49m[30;43m=[39;49m[30;43mt1[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mparameters[39;49m[30;43m=[39;49m[30;43mparameters[39;49m
@@ -134,7 +134,7 @@ plt.show()
 
     [31m[... skipping hidden 5 frame][39m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:200[39m, in [36mAdaptiveIVPSolver.step_fn[39m[34m(self, state, vector_field, t1, parameters)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:200[39m, in [36mAdaptiveIVPSolver.step_fn[39m[34m(self, state, vector_field, t1, parameters)[39m
 [32m    198[39m [38;5;250m[39m[33;03m"""Perform a full step (including acceptance/rejection)."""[39;00m
 [32m    199[39m enter_rejection_loop = state.accepted.t + [38;5;28mself[39m.numerical_zero < t1
 [32m--> [39m[32m200[39m state = [30;43mjax[39;49m[30;43m.[39;49m[30;43mlax[39;49m[30;43m.[39;49m[30;43mcond[39;49m[30;43m([39;49m
@@ -155,7 +155,7 @@ plt.show()
 
     [31m[... skipping hidden 3 frame][39m
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:202[39m, in [36mAdaptiveIVPSolver.step_fn.<locals>.<lambda>[39m[34m(s)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:202[39m, in [36mAdaptiveIVPSolver.step_fn.<locals>.<lambda>[39m[34m(s)[39m
 [32m    198[39m [38;5;250m[39m[33;03m"""Perform a full step (including acceptance/rejection)."""[39;00m
 [32m    199[39m enter_rejection_loop = state.accepted.t + [38;5;28mself[39m.numerical_zero < t1
 [32m    200[39m state = jax.lax.cond(
@@ -174,7 +174,7 @@ plt.show()
 [32m    213[39m )
 [32m    214[39m [38;5;28;01mreturn[39;00m state
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:235[39m, in [36mAdaptiveIVPSolver._rejection_loop[39m[34m(self, vector_field, state0, t1, parameters)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:235[39m, in [36mAdaptiveIVPSolver._rejection_loop[39m[34m(self, vector_field, state0, t1, parameters)[39m
 [32m    230[39m     [38;5;28;01mreturn[39;00m [38;5;28;01mTrue[39;00m, s
 [32m    232[39m _, state_new = [38;5;28mself[39m.while_loop_fn(cond_fn, body_fn, init_fn(state0))
 [32m    233[39m [38;5;28;01mreturn[39;00m AdaptiveIVPSolverState(
@@ -187,11 +187,11 @@ plt.show()
 [32m    240[39m     control=state_new.control,
 [32m    241[39m )
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:311[39m, in [36m_inf_like[39m[34m(tree)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/probdiffeq/_adaptive.py:311[39m, in [36m_inf_like[39m[34m(tree)[39m
 [32m    310[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_inf_like[39m(tree):
 [32m--> [39m[32m311[39m     [38;5;28;01mreturn[39;00m [30;43mjax[39;49m[30;43m.[39;49m[30;43mtree_map[39;49m([38;5;28;01mlambda[39;00m x: jnp.inf * jnp.ones_like(x), tree)
 
-[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/site-packages/jax/_src/deprecations.py:57[39m, in [36mdeprecation_getattr.<locals>.getattr[39m[34m(name)[39m
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/jax/_src/deprecations.py:57[39m, in [36mdeprecation_getattr.<locals>.getattr[39m[34m(name)[39m
 [32m     55[39m   warnings.warn(message, [38;5;167;01mDeprecationWarning[39;00m, stacklevel=[32m2[39m)
 [32m     56[39m   [38;5;28;01mreturn[39;00m fn
 [32m---> [39m[32m57[39m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([33mf[39m[33m"[39m[33mmodule [39m[38;5;132;01m{[39;00mmodule[38;5;132;01m!r}[39;00m[33m has no attribute [39m[38;5;132;01m{[39;00mname[38;5;132;01m!r}[39;00m[33m"[39m)
